@@ -12,6 +12,7 @@ struct OnboardingView: View {
     @State private var currentPage = 0
     @State private var itemTitle = ""
     @State private var selectedCategory: WaitCategory = .job
+    @State private var animatePipeline = false
 
     var body: some View {
         ZStack {
@@ -184,6 +185,12 @@ extension OnboardingView {
         ) {
             pipelineDemo
         }
+        .onAppear {
+            animatePipeline = false
+            withAnimation(Theme.Animations.springGentle.delay(0.3)) {
+                animatePipeline = true
+            }
+        }
     }
 
     private var pipelineDemo: some View {
@@ -213,23 +220,28 @@ extension OnboardingView {
     }
 
     private func pipelineDot(index: Int) -> some View {
-        Circle()
-            .fill(index <= 2 ? Theme.CategoryColors.job : Theme.TextColors.muted.opacity(0.3))
+        let isActive = animatePipeline && index <= 2
+        return Circle()
+            .fill(isActive ? Theme.CategoryColors.job : Theme.TextColors.muted.opacity(0.3))
             .frame(width: 14, height: 14)
             .overlay {
-                if index <= 2 {
+                if isActive {
                     Circle()
                         .fill(.white)
                         .frame(width: 6, height: 6)
                 }
             }
+            .scaleEffect(isActive ? 1.0 : 0.6)
+            .animation(Theme.Animations.springMedium.delay(Double(index) * 0.15), value: animatePipeline)
     }
 
     private func pipelineConnector(filled: Bool) -> some View {
-        Rectangle()
-            .fill(filled ? Theme.CategoryColors.job : Theme.TextColors.muted.opacity(0.3))
+        let isActive = animatePipeline && filled
+        return Rectangle()
+            .fill(isActive ? Theme.CategoryColors.job : Theme.TextColors.muted.opacity(0.3))
             .frame(height: 3)
             .frame(maxWidth: .infinity)
+            .animation(Theme.Animations.springMedium.delay(0.2), value: animatePipeline)
     }
 
     private var createItemPage: some View {

@@ -25,8 +25,8 @@ struct AppIconView: View {
             colors: [
                 Theme.CategoryColors.job,
                 Theme.CategoryColors.product,
-                Theme.CategoryColors.event,
-                Theme.CategoryColors.admin
+                Theme.CategoryColors.admin,
+                Theme.CategoryColors.event
             ],
             startPoint: .topLeading,
             endPoint: .bottomTrailing
