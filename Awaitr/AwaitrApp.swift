@@ -11,6 +11,8 @@ import UserNotifications
 
 @main
 struct AwaitrApp: App {
+    @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
+
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             WaitItem.self,
@@ -34,6 +36,9 @@ struct AwaitrApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .fullScreenCover(isPresented: .constant(!hasSeenOnboarding)) {
+                    OnboardingView()
+                }
         }
         .modelContainer(sharedModelContainer)
     }
