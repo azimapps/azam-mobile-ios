@@ -59,9 +59,9 @@ struct DashboardViewModelTests {
         let (vm, _) = try makeVM()
         let old = Calendar.current.date(byAdding: .day, value: -10, to: .now)!
         let items = [
-            WaitItemFactory.make(title: "Low", priority: .low, submittedAt: .now),
-            WaitItemFactory.make(title: "High Old", priority: .high, submittedAt: old),
-            WaitItemFactory.make(title: "High New", priority: .high, submittedAt: .now),
+            WaitItemFactory.make(title: "Low", submittedAt: .now, priority: .low),
+            WaitItemFactory.make(title: "High Old", submittedAt: old, priority: .high),
+            WaitItemFactory.make(title: "High New", submittedAt: .now, priority: .high),
         ]
         let result = vm.filteredItems(from: items)
         #expect(result[0].title == "High Old")

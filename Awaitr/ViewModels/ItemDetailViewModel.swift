@@ -25,6 +25,11 @@ final class ItemDetailViewModel {
         }
     }
 
+    func acceptItem() {
+        item.transition(to: .accepted)
+        NotificationService.cancel(for: item.id)
+    }
+
     func rejectItem() {
         item.reject()
         NotificationService.cancel(for: item.id)

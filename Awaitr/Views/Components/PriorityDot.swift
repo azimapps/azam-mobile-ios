@@ -12,7 +12,7 @@ struct PriorityDot: View {
         Circle()
             .fill(priority.color)
             .frame(width: 8, height: 8)
-            .accessibilityLabel("\(priority.label) priority")
+            .accessibilityLabel(Text("\(priority.label) priority"))
     }
 }
 

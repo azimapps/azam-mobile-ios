@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import UserNotifications
 
 @main
 struct AwaitrApp: App {
@@ -23,8 +24,11 @@ struct AwaitrApp: App {
         }
     }()
 
+    private let notificationDelegate = NotificationDelegate()
+
     init() {
         NotificationService.registerCategories()
+        UNUserNotificationCenter.current().delegate = notificationDelegate
     }
 
     var body: some Scene {
@@ -32,5 +36,30 @@ struct AwaitrApp: App {
             ContentView()
         }
         .modelContainer(sharedModelContainer)
+    }
+}
+
+// MARK: - Notification Delegate
+
+final class NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        didReceive response: UNNotificationResponse
+    ) async {
+        switch response.actionIdentifier {
+        case "SNOOZE_ACTION":
+            let identifier = response.notification.request.identifier
+            let content = response.notification.request.content
+            await NotificationService.snooze(identifier: identifier, content: content)
+        default:
+            break
+        }
+    }
+
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        willPresent notification: UNNotification
+    ) async -> UNNotificationPresentationOptions {
+        [.banner, .sound]
     }
 }

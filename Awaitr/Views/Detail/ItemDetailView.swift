@@ -12,16 +12,21 @@ struct ItemDetailView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
     @State private var showDeleteConfirmation = false
+    @State private var showEditSheet = false
 
     var body: some View {
         ScrollView {
             VStack(spacing: Theme.Spacing.lg) {
-                headerSection
-                infoSection
-                notesSection
-                actionsSection
+                metaBar
+                pipelineCard
+                detailsCard
+                timelineCard
+                notesCard
+                if !item.isArchived {
+                    actionButtons
+                }
             }
-            .padding()
+            .padding(Theme.Spacing.lg)
         }
         .navigationTitle(item.title)
         .navigationBarTitleDisplayMode(.inline)
@@ -29,6 +34,9 @@ struct ItemDetailView: View {
             if viewModel == nil {
                 viewModel = ItemDetailViewModel(item: item, modelContext: modelContext)
             }
+        }
+        .sheet(isPresented: $showEditSheet) {
+            AddEditItemView(item: item)
         }
         .confirmationDialog("Delete Item?", isPresented: $showDeleteConfirmation) {
             Button("Delete", role: .destructive) {
@@ -40,123 +48,202 @@ struct ItemDetailView: View {
         }
     }
 
-    // MARK: - Header
+    // MARK: - Meta Bar
 
-    private var headerSection: some View {
-        VStack(spacing: Theme.Spacing.sm) {
-            HStack {
-                CategoryBadge(category: item.category)
-                Spacer()
-                StatusBadge(status: item.status)
-            }
-            HStack {
-                PriorityDot(priority: item.priority)
-                Text(item.daysWaitingLabel)
-                    .font(Theme.Typography.caption)
-                    .foregroundStyle(Theme.TextColors.muted)
-                Spacer()
-            }
-        }
-        .padding()
-        .glassCard()
-    }
-
-    // MARK: - Info
-
-    private var infoSection: some View {
-        VStack(alignment: .leading, spacing: Theme.Spacing.sm) {
-            infoRow("Submitted", value: item.submittedAt.shortFormatted)
-            if let expected = item.expectedAt {
-                infoRow("Expected", value: expected.shortFormatted)
-            }
-            if let followUp = item.followUpAt {
-                infoRow("Follow-up", value: followUp.shortFormatted)
-            }
-        }
-        .padding()
-        .glassCard()
-    }
-
-    private func infoRow(_ label: String, value: String) -> some View {
+    private var metaBar: some View {
         HStack {
-            Text(label)
+            CategoryBadge(category: item.category)
+            Text(item.category.shortLabel)
                 .font(Theme.Typography.caption)
                 .foregroundStyle(Theme.TextColors.muted)
             Spacer()
-            Text(value)
-                .font(Theme.Typography.body)
-                .foregroundStyle(Theme.TextColors.dark)
+            PriorityDot(priority: item.priority)
+            Text("\(item.priority.rawValue.capitalized) priority")
+                .font(.system(size: 13, weight: .medium))
+                .foregroundStyle(item.priority.color)
         }
     }
 
-    // MARK: - Notes
+    // MARK: - Pipeline Card
 
-    private var notesSection: some View {
-        Group {
-            if !item.notes.isEmpty {
-                VStack(alignment: .leading, spacing: Theme.Spacing.sm) {
-                    Text("Notes")
-                        .font(Theme.Typography.caption)
-                        .foregroundStyle(Theme.TextColors.muted)
-                    Text(item.notes)
-                        .font(Theme.Typography.body)
-                        .foregroundStyle(Theme.TextColors.dark)
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding()
-                .glassCard()
+    private var pipelineCard: some View {
+        GlassCard {
+            VStack(alignment: .leading, spacing: Theme.Spacing.md) {
+                sectionLabel("STATUS PIPELINE")
+                PipelineProgressView(status: item.status)
             }
         }
     }
 
-    // MARK: - Actions
+    // MARK: - Details Card
 
-    private var actionsSection: some View {
-        VStack(spacing: Theme.Spacing.sm) {
+    private var detailsCard: some View {
+        GlassCard {
+            VStack(alignment: .leading, spacing: Theme.Spacing.md) {
+                sectionLabel("DETAILS")
+                detailsGrid
+            }
+        }
+    }
+
+    private var detailsGrid: some View {
+        let columns = [
+            GridItem(.flexible(), spacing: Theme.Spacing.lg),
+            GridItem(.flexible(), spacing: Theme.Spacing.lg)
+        ]
+
+        return LazyVGrid(columns: columns, alignment: .leading, spacing: Theme.Spacing.md) {
+            detailCell(label: "Submitted", value: item.submittedAt.shortFormatted, color: Theme.TextColors.dark)
+            detailCell(label: "Days waiting", value: item.daysWaitingLabel, color: item.category.color)
+            detailCell(label: "Expected by", value: item.expectedAt?.shortFormatted ?? "Not set", color: Theme.TextColors.dark)
+            detailCell(label: "Follow-up", value: item.followUpAt?.shortFormatted ?? "Not set", color: Theme.CategoryColors.admin)
+        }
+    }
+
+    private func detailCell(label: String, value: String, color: Color) -> some View {
+        VStack(alignment: .leading, spacing: 2) {
+            Text(label)
+                .font(.system(size: 11, weight: .medium))
+                .foregroundStyle(Theme.TextColors.muted)
+            Text(value)
+                .font(.system(size: 14, weight: .medium))
+                .foregroundStyle(color)
+        }
+    }
+
+    // MARK: - Timeline Card
+
+    @ViewBuilder
+    private var timelineCard: some View {
+        if !item.statusHistory.isEmpty {
+            GlassCard {
+                VStack(alignment: .leading, spacing: Theme.Spacing.md) {
+                    sectionLabel("TIMELINE")
+                    TimelineView(entries: item.statusHistory, categoryColor: item.category.color)
+                }
+            }
+        }
+    }
+
+    // MARK: - Notes Card
+
+    @ViewBuilder
+    private var notesCard: some View {
+        if !item.notes.isEmpty {
+            GlassCard {
+                VStack(alignment: .leading, spacing: Theme.Spacing.sm) {
+                    sectionLabel("NOTES")
+                    Text(item.notes)
+                        .font(.system(size: 13))
+                        .foregroundStyle(Color(hex: "3D3D5C"))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+            }
+        }
+    }
+
+    // MARK: - Action Buttons
+
+    private var actionButtons: some View {
+        HStack(spacing: 10) {
             if !item.status.isTerminal {
                 if let next = item.status.nextStatus {
-                    Button {
+                    // Non-terminal with next (submitted, inReview)
+                    primaryButton("Advance to \(next.shortLabel)") {
                         withAnimation(Theme.Animations.springMedium) {
                             viewModel?.advanceStatus()
                         }
-                    } label: {
-                        Label("Advance to \(next.label)", systemImage: "arrow.right.circle.fill")
-                            .frame(maxWidth: .infinity)
                     }
-                    .buttonStyle(.borderedProminent)
-                    .tint(Theme.CategoryColors.job)
+                    editButton
+                    deleteIconButton
+                } else {
+                    // Awaiting (no nextStatus, not terminal)
+                    acceptButton
+                    rejectButton
+                    editButton
+                    deleteIconButton
                 }
-
-                Button {
-                    withAnimation(Theme.Animations.springMedium) {
-                        viewModel?.rejectItem()
-                    }
-                } label: {
-                    Label("Mark as Rejected", systemImage: "xmark.circle.fill")
-                        .frame(maxWidth: .infinity)
-                }
-                .buttonStyle(.bordered)
-                .tint(.red)
+            } else {
+                // Terminal (accepted/rejected)
+                editButton
+                deleteIconButton
             }
-
-            if !item.isArchived {
-                Button {
-                    viewModel?.archiveItem()
-                    dismiss()
-                } label: {
-                    Label("Archive", systemImage: "archivebox.fill")
-                        .frame(maxWidth: .infinity)
-                }
-                .buttonStyle(.bordered)
-            }
-
-            Button(role: .destructive) {
-                showDeleteConfirmation = true
-            } label: {
-                Label("Delete", systemImage: "trash.fill")
-                    .frame(maxWidth: .infinity)
-            }
-            .buttonStyle(.bordered)
         }
+    }
+
+    private func primaryButton(_ label: String, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            Text(label)
+                .font(.system(size: 14, weight: .semibold))
+                .foregroundStyle(.white)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 12)
+                .background(Theme.CategoryColors.job)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+        }
+    }
+
+    private var acceptButton: some View {
+        Button {
+            withAnimation(Theme.Animations.springMedium) {
+                viewModel?.acceptItem()
+            }
+        } label: {
+            Text("Accept")
+                .font(.system(size: 14, weight: .semibold))
+                .foregroundStyle(.white)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 12)
+                .background(Color(hex: "3B6D11"))
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+        }
+    }
+
+    private var rejectButton: some View {
+        Button {
+            withAnimation(Theme.Animations.springMedium) {
+                viewModel?.rejectItem()
+            }
+        } label: {
+            Text("Reject")
+                .font(.system(size: 14, weight: .semibold))
+                .foregroundStyle(Color(hex: "E24B4A"))
+                .padding(.vertical, 12)
+                .padding(.horizontal, 16)
+                .background(Color(hex: "E24B4A").opacity(0.1))
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+        }
+    }
+
+    private var editButton: some View {
+        Button { showEditSheet = true } label: {
+            Text("Edit")
+                .font(.system(size: 14, weight: .semibold))
+                .foregroundStyle(Theme.CategoryColors.job)
+                .padding(.vertical, 12)
+                .padding(.horizontal, 16)
+                .background(Theme.CategoryColors.job.opacity(0.1))
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+        }
+    }
+
+    private var deleteIconButton: some View {
+        Button { showDeleteConfirmation = true } label: {
+            Image(systemName: "trash.fill")
+                .font(.system(size: 14))
+                .foregroundStyle(Color(hex: "E24B4A"))
+                .frame(width: 44, height: 44)
+                .background(Color(hex: "E24B4A").opacity(0.1))
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+        }
+    }
+
+    // MARK: - Section Label
+
+    private func sectionLabel(_ text: String) -> some View {
+        Text(text)
+            .font(.system(size: 11, weight: .semibold))
+            .foregroundStyle(Theme.TextColors.muted)
+            .tracking(0.8)
     }
 }

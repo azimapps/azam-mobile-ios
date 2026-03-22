@@ -45,7 +45,7 @@ enum ExportService {
         return value
     }
 
-    private static func formatDate(_ date: Date) -> String {
-        ISO8601DateFormatter().string(from: date)
+    private nonisolated static func formatDate(_ date: Date) -> String {
+        date.formatted(.iso8601)
     }
 }

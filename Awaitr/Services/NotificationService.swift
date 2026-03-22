@@ -81,6 +81,20 @@ enum NotificationService {
         return requests.count
     }
 
+    // MARK: - Snooze
+
+    static func snooze(identifier: String, content: UNNotificationContent) async {
+        let newContent = content.mutableCopy() as! UNMutableNotificationContent
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3600, repeats: false)
+        let request = UNNotificationRequest(identifier: identifier, content: newContent, trigger: trigger)
+        do {
+            try await UNUserNotificationCenter.current().add(request)
+            logger.info("Snoozed notification: \(identifier) for 1 hour")
+        } catch {
+            logger.error("Failed to snooze notification: \(error)")
+        }
+    }
+
     // MARK: - Categories (Actions)
 
     static func registerCategories() {

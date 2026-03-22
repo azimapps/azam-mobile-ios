@@ -13,16 +13,11 @@ struct ArchiveView: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView {
+            Group {
                 if archivedItems.isEmpty {
                     emptyArchive
                 } else {
-                    LazyVStack(spacing: Theme.Spacing.md) {
-                        ForEach(archivedItems) { item in
-                            archiveRow(item)
-                        }
-                    }
-                    .padding()
+                    archiveList
                 }
             }
             .navigationTitle("Archive")
@@ -34,21 +29,65 @@ struct ArchiveView: View {
         }
     }
 
-    // MARK: - Row
+    // MARK: - Archive List
 
-    private func archiveRow(_ item: WaitItem) -> some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 4) {
-                Text(item.title)
-                    .font(Theme.Typography.cardTitle)
-                    .foregroundStyle(Theme.TextColors.dark)
-                StatusBadge(status: item.status)
-            }
-            Spacer()
-            CategoryBadge(category: item.category)
+    private var archiveList: some View {
+        List {
+            statsSection
+            monthSections
         }
-        .padding()
-        .glassCard()
+        .listStyle(.plain)
+        .navigationDestination(for: UUID.self) { itemId in
+            if let item = archivedItems.first(where: { $0.id == itemId }) {
+                ItemDetailView(item: item)
+            }
+        }
+    }
+
+    // MARK: - Stats
+
+    private var statsSection: some View {
+        Section {
+            ArchiveStatsView(
+                accepted: viewModel?.totalAccepted(from: archivedItems) ?? 0,
+                rejected: viewModel?.totalRejected(from: archivedItems) ?? 0
+            )
+            .listRowSeparator(.hidden)
+            .listRowInsets(EdgeInsets(top: 0, leading: Theme.Spacing.lg, bottom: 18, trailing: Theme.Spacing.lg))
+        }
+    }
+
+    // MARK: - Month Sections
+
+    @ViewBuilder
+    private var monthSections: some View {
+        let groups = viewModel?.groupedByMonth(from: archivedItems) ?? []
+        ForEach(Array(groups.enumerated()), id: \.element.key) { _, group in
+            Section {
+                ForEach(group.items) { item in
+                    NavigationLink(value: item.id) {
+                        ArchiveItemCard(item: item)
+                    }
+                    .listRowSeparator(.hidden)
+                    .listRowInsets(EdgeInsets(top: 2, leading: Theme.Spacing.lg, bottom: 2, trailing: Theme.Spacing.lg))
+                    .swipeActions(edge: .trailing) {
+                        Button {
+                            withAnimation(.easeInOut(duration: 0.3)) {
+                                viewModel?.unarchiveItem(item)
+                            }
+                        } label: {
+                            Label("Unarchive", systemImage: "arrow.uturn.backward")
+                        }
+                        .tint(Theme.CategoryColors.job)
+                    }
+                }
+            } header: {
+                Text(group.key.uppercased())
+                    .font(.system(size: 13, weight: .semibold))
+                    .foregroundStyle(Theme.TextColors.muted)
+                    .tracking(0.5)
+            }
+        }
     }
 
     // MARK: - Empty
