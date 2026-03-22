@@ -90,7 +90,7 @@ enum NotificationService {
     // MARK: - Snooze
 
     static func snooze(identifier: String, content: UNNotificationContent) async {
-        let newContent = content.mutableCopy() as! UNMutableNotificationContent
+        guard let newContent = content.mutableCopy() as? UNMutableNotificationContent else { return }
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3600, repeats: false)
         let request = UNNotificationRequest(identifier: identifier, content: newContent, trigger: trigger)
         do {

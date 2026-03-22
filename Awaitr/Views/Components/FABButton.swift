@@ -122,7 +122,8 @@ struct FABButton: View {
         withAnimation(Theme.Animations.fabBounce) {
             isPressed = true
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+        Task { @MainActor in
+            try? await Task.sleep(for: .milliseconds(150))
             withAnimation(Theme.Animations.fabBounce) {
                 isPressed = false
             }

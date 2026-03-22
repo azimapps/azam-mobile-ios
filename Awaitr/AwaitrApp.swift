@@ -32,6 +32,11 @@ struct AwaitrApp: App {
     init() {
         NotificationService.registerCategories()
         UNUserNotificationCenter.current().delegate = notificationDelegate
+
+        // Skip onboarding for UI tests
+        if CommandLine.arguments.contains("--skip-onboarding") {
+            UserDefaults.standard.set(true, forKey: "hasSeenOnboarding")
+        }
     }
 
     var body: some Scene {
