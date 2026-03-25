@@ -47,10 +47,10 @@ Awaitr gives you a single place to track everything you're waiting for. Every it
 ## Screenshots
 
 <p align="center">
-  <img src="docs/screenshots/dashboard.png" width="200" alt="Dashboard" />
-  <img src="docs/screenshots/detail.png" width="200" alt="Item Detail" />
-  <img src="docs/screenshots/archive.png" width="200" alt="Archive" />
-  <img src="docs/screenshots/settings.png" width="200" alt="Settings" />
+  <img src="assets/dashboard.png" width="200" alt="Dashboard" />
+  <img src="assets/detail.png" width="200" alt="Item Detail" />
+  <img src="assets/archive.png" width="200" alt="Archive" />
+  <img src="assets/settings.png" width="200" alt="Settings" />
 </p>
 
 ## Tech Stack
@@ -119,8 +119,6 @@ open Awaitr.xcodeproj
 - [ ] Siri Shortcuts
 - [ ] Apple Watch companion
 - [ ] Localization (Bahasa Indonesia first)
-
-See the full roadmap in [tasks/todo.md](tasks/todo.md).
 
 ## Privacy
 

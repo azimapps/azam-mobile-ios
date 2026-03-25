@@ -19,7 +19,7 @@ Packages/
 # Claude Code
 .claude/
 
-# Task files (keep private)
-tasks/marketing-drafts.md
-tasks/lessons.md
-tasks/producthunt-launch-playbook.md
+# Private folders
+docs/
+tasks/
+scripts/
