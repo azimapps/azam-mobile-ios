@@ -39,7 +39,7 @@ struct WaitItemCard: View {
     private var titleText: some View {
         Text(item.title)
             .font(Theme.Typography.cardTitle)
-            .foregroundStyle(Theme.TextColors.dark)
+            .foregroundStyle(Theme.TextColors.primary)
             .lineLimit(1)
             .frame(maxWidth: .infinity, alignment: .leading)
     }
@@ -49,7 +49,7 @@ struct WaitItemCard: View {
     private var daysText: some View {
         Text(daysLabel)
             .font(Theme.Typography.caption)
-            .foregroundStyle(Theme.TextColors.muted)
+            .foregroundStyle(Theme.TextColors.secondary)
     }
 
     private var daysLabel: String {
@@ -93,9 +93,9 @@ struct MiniPipelineBar: View {
             return Theme.PriorityColors.high // red for negative
         default:
             guard let currentIndex = template.pipelineIndex(of: status) else {
-                return Color.black.opacity(0.06)
+                return Theme.GlassColors.inactiveBar
             }
-            return index <= currentIndex ? Color(category: template.category) : Color.black.opacity(0.06)
+            return index <= currentIndex ? Color(category: template.category) : Theme.GlassColors.inactiveBar
         }
     }
 }

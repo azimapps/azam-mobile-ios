@@ -87,7 +87,7 @@ struct ArchiveView: View {
             } header: {
                 Text(group.key.uppercased())
                     .font(Theme.Typography.captionBold)
-                    .foregroundStyle(Theme.TextColors.muted)
+                    .foregroundStyle(Theme.TextColors.secondary)
                     .tracking(0.5)
             }
         }
@@ -100,10 +100,10 @@ struct ArchiveView: View {
             Spacer().frame(height: 80)
             Image(systemName: "archivebox")
                 .font(Theme.Typography.largeIcon)
-                .foregroundStyle(Theme.TextColors.muted)
+                .foregroundStyle(Theme.TextColors.secondary)
             Text("No archived items yet")
                 .font(Theme.Typography.sectionHeader)
-                .foregroundStyle(Theme.TextColors.dark)
+                .foregroundStyle(Theme.TextColors.primary)
         }
         .frame(maxWidth: .infinity)
         .accessibilityElement(children: .combine)

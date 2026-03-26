@@ -4,8 +4,9 @@
 //
 
 import SwiftUI
+import UIKit
 
-// MARK: - Color(hex:) Extension
+// MARK: - Color Extensions
 
 extension Color {
     init(hex: String) {
@@ -23,6 +24,12 @@ extension Color {
         }
         self.init(red: r, green: g, blue: b)
     }
+
+    init(light: Color, dark: Color) {
+        self.init(uiColor: UIColor { traits in
+            traits.userInterfaceStyle == .dark ? UIColor(dark) : UIColor(light)
+        })
+    }
 }
 
 // MARK: - Design Tokens
@@ -32,25 +39,43 @@ enum Theme {
     // MARK: Category Colors
 
     enum CategoryColors {
-        static let job     = Color(hex: "6C63FF")
-        static let product = Color(hex: "E24B4A")
-        static let admin   = Color(hex: "BA7517")
-        static let event   = Color(hex: "3B6D11")
+        static let job     = Color(light: Color(hex: "6C63FF"), dark: Color(hex: "8B83FF"))
+        static let product = Color(light: Color(hex: "E24B4A"), dark: Color(hex: "F06B6A"))
+        static let admin   = Color(light: Color(hex: "BA7517"), dark: Color(hex: "D4922E"))
+        static let event   = Color(light: Color(hex: "3B6D11"), dark: Color(hex: "5A9E2E"))
     }
 
     // MARK: Priority Colors
 
     enum PriorityColors {
-        static let high   = Color(hex: "E24B4A")
-        static let medium = Color(hex: "EF9F27")
-        static let low    = Color(hex: "97C459")
+        static let high   = Color(light: Color(hex: "E24B4A"), dark: Color(hex: "F06B6A"))
+        static let medium = Color(light: Color(hex: "EF9F27"), dark: Color(hex: "F5B342"))
+        static let low    = Color(light: Color(hex: "97C459"), dark: Color(hex: "ADDA6E"))
     }
 
     // MARK: Text Colors
 
     enum TextColors {
-        static let dark  = Color(hex: "1A1A2E")
-        static let muted = Color(hex: "666680")
+        static let primary   = Color(light: Color(hex: "1A1A2E"), dark: Color(hex: "E8E8F0"))
+        static let secondary = Color(light: Color(hex: "666680"), dark: Color(hex: "9595B0"))
+        static let tertiary  = Color(light: Color(hex: "999999"), dark: Color(hex: "5C5C78"))
+    }
+
+    // MARK: Background Colors
+
+    enum BackgroundColors {
+        static let base     = Color(light: Color(hex: "F7F6FF"), dark: Color(hex: "0F0F1A"))
+        static let card     = Color(light: .white, dark: Color(hex: "1A1A2E"))
+        static let elevated = Color(light: .white, dark: Color(hex: "242440"))
+    }
+
+    // MARK: Glass Colors
+
+    enum GlassColors {
+        static let fill       = Color(light: .white.opacity(0.5), dark: .white.opacity(0.06))
+        static let border     = Color(light: .white.opacity(0.3), dark: .white.opacity(0.10))
+        static let inactiveBar = Color(light: .black.opacity(0.06), dark: .white.opacity(0.08))
+        static let trackBg    = Color(light: Color(hex: "F0F0F4"), dark: Color(hex: "242440"))
     }
 
     // MARK: Typography

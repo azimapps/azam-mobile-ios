@@ -102,7 +102,7 @@ struct AddEditItemView: View {
 
                     Text("\(vm.titleCharacterCount)/80")
                         .font(Theme.Typography.caption)
-                        .foregroundStyle(vm.titleCharacterCount > 80 ? .red : Theme.TextColors.muted)
+                        .foregroundStyle(vm.titleCharacterCount > 80 ? .red : Theme.TextColors.secondary)
                         .accessibilityHidden(true)
                 }
                 Divider()
@@ -152,7 +152,7 @@ struct AddEditItemView: View {
                         Text(tmpl.label)
                             .font(Theme.Typography.caption)
                     }
-                    .foregroundStyle(isSelected ? Color(category: vm.category) : Theme.TextColors.muted)
+                    .foregroundStyle(isSelected ? Color(category: vm.category) : Theme.TextColors.secondary)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 10)
                     .background(
@@ -162,7 +162,7 @@ struct AddEditItemView: View {
                     .overlay(
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(
-                                isSelected ? Color(category: vm.category) : Color.black.opacity(0.06),
+                                isSelected ? Color(category: vm.category) : Theme.GlassColors.inactiveBar,
                                 lineWidth: isSelected ? 1.5 : 1
                             )
                     )
@@ -256,11 +256,11 @@ struct AddEditItemView: View {
             HStack {
                 Text(label)
                     .font(Theme.Typography.bodyMedium)
-                    .foregroundStyle(Theme.TextColors.dark)
+                    .foregroundStyle(Theme.TextColors.primary)
                 Spacer()
                 Text(value ?? String(localized: "Set date"))
                     .font(Theme.Typography.bodyMedium)
-                    .foregroundStyle(isSet ? Theme.CategoryColors.job : Color(hex: "999999"))
+                    .foregroundStyle(isSet ? Theme.CategoryColors.job : Theme.TextColors.tertiary)
             }
             .padding(.vertical, 6)
             .contentShape(Rectangle())
@@ -358,7 +358,7 @@ struct AddEditItemView: View {
                         PriorityDot(priority: p)
                         Text(p.rawValue.capitalized)
                             .font(Theme.Typography.caption)
-                            .foregroundStyle(isSelected ? p.color : Theme.TextColors.muted)
+                            .foregroundStyle(isSelected ? p.color : Theme.TextColors.secondary)
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 8)
@@ -369,7 +369,7 @@ struct AddEditItemView: View {
                     .overlay(
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(
-                                isSelected ? p.color : Color.black.opacity(0.06),
+                                isSelected ? p.color : Theme.GlassColors.inactiveBar,
                                 lineWidth: isSelected ? 1.5 : 1
                             )
                     )
@@ -390,7 +390,7 @@ struct AddEditItemView: View {
                     Spacer()
                     Text("\(vm.notesCharacterCount)/500")
                         .font(Theme.Typography.caption)
-                        .foregroundStyle(vm.notesCharacterCount > 500 ? .red : Theme.TextColors.muted)
+                        .foregroundStyle(vm.notesCharacterCount > 500 ? .red : Theme.TextColors.secondary)
                 }
                 ZStack(alignment: .topLeading) {
                     TextEditor(text: Binding(
@@ -404,7 +404,7 @@ struct AddEditItemView: View {
                     if vm.notes.isEmpty {
                         Text("Add notes...")
                             .font(Theme.Typography.body)
-                            .foregroundStyle(Color(hex: "999999"))
+                            .foregroundStyle(Theme.TextColors.tertiary)
                             .padding(.top, 8)
                             .padding(.leading, 4)
                             .allowsHitTesting(false)
@@ -419,7 +419,7 @@ struct AddEditItemView: View {
     private func sectionLabel(_ text: LocalizedStringKey) -> some View {
         Text(text)
             .font(Theme.Typography.sectionLabel)
-            .foregroundStyle(Theme.TextColors.muted)
+            .foregroundStyle(Theme.TextColors.secondary)
             .tracking(0.8)
     }
 }

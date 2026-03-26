@@ -9,6 +9,7 @@ import SwiftData
 struct SettingsView: View {
     @State private var viewModel: SettingsViewModel?
     @State private var showReminderPicker = false
+    @AppStorage("appearanceMode") private var appearanceMode: String = AppearanceMode.auto.rawValue
     @Environment(\.modelContext) private var modelContext
 
     var body: some View {
@@ -112,6 +113,18 @@ struct SettingsView: View {
 
     private var generalCard: some View {
         VStack(spacing: 0) {
+            SettingsRow(icon: "moon.fill", iconColor: Theme.CategoryColors.admin, label: "Appearance") {
+                Picker("", selection: $appearanceMode) {
+                    ForEach(AppearanceMode.allCases) { mode in
+                        Text(mode.label).tag(mode.rawValue)
+                    }
+                }
+                .pickerStyle(.segmented)
+                .frame(width: 160)
+            }
+
+            Divider()
+
             SettingsRow(icon: "bell.fill", iconColor: Theme.CategoryColors.job, label: "Notifications") {
                 Toggle("", isOn: notificationsBinding)
                     .tint(Theme.CategoryColors.job)
@@ -128,7 +141,7 @@ struct SettingsView: View {
             SettingsRow(icon: "doc.text.fill", iconColor: Theme.CategoryColors.event, label: "Export CSV") {
                 Image(systemName: "chevron.right")
                     .font(Theme.Typography.captionBold)
-                    .foregroundStyle(Theme.TextColors.muted)
+                    .foregroundStyle(Theme.TextColors.secondary)
             }
             .contentShape(Rectangle())
             .onTapGesture { exportCSV() }
@@ -177,6 +190,18 @@ struct SettingsView: View {
 
     private var appCard: some View {
         VStack(spacing: 0) {
+            SettingsRow(icon: "star.fill", iconColor: .orange, label: "Rate Awaitr") {
+                Image(systemName: "chevron.right")
+                    .font(Theme.Typography.captionBold)
+                    .foregroundStyle(Theme.TextColors.secondary)
+            }
+            .contentShape(Rectangle())
+            .onTapGesture { ReviewService.requestReview() }
+            .accessibilityAddTraits(.isButton)
+            .accessibilityHint("Rate this app on the App Store")
+
+            Divider()
+
             SettingsRow(
                 icon: "trash.fill",
                 iconColor: Theme.CategoryColors.product,
@@ -185,7 +210,7 @@ struct SettingsView: View {
             ) {
                 Image(systemName: "chevron.right")
                     .font(Theme.Typography.captionBold)
-                    .foregroundStyle(Theme.TextColors.muted)
+                    .foregroundStyle(Theme.TextColors.secondary)
             }
             .contentShape(Rectangle())
             .onTapGesture { viewModel?.requestClearData() }
@@ -207,7 +232,7 @@ struct SettingsView: View {
 
             Text("Version 1.0.0")
                 .font(Theme.Typography.smallLabel)
-                .foregroundStyle(Theme.TextColors.muted)
+                .foregroundStyle(Theme.TextColors.secondary)
                 .padding(.top, 4)
 
 

@@ -35,7 +35,7 @@ struct CategoryFilterBar: View {
 
         return Text(label)
             .font(Theme.Typography.caption)
-            .foregroundStyle(isSelected ? tintColor : Theme.TextColors.muted)
+            .foregroundStyle(isSelected ? tintColor : Theme.TextColors.secondary)
             .padding(.horizontal, Theme.Spacing.md)
             .padding(.vertical, Theme.Spacing.sm)
             .background {
@@ -45,10 +45,10 @@ struct CategoryFilterBar: View {
                         .matchedGeometryEffect(id: "pill", in: pillNamespace)
                 } else {
                     Capsule()
-                        .fill(.white.opacity(0.7))
+                        .fill(Theme.GlassColors.fill)
                         .overlay(
                             Capsule()
-                                .stroke(Color.black.opacity(0.06), lineWidth: 1)
+                                .stroke(Theme.GlassColors.border, lineWidth: 1)
                         )
                 }
             }

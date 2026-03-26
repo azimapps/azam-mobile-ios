@@ -46,12 +46,12 @@ struct SummaryStatsView: View {
                 // Big count number
                 Text("\(count)")
                     .font(Theme.Typography.numericCounter)
-                    .foregroundStyle(Theme.TextColors.dark)
+                    .foregroundStyle(Theme.TextColors.primary)
 
                 // Status sub-text
                 Text(dominantStatusText(for: categoryItems))
                     .font(Theme.Typography.caption)
-                    .foregroundStyle(Theme.TextColors.muted)
+                    .foregroundStyle(Theme.TextColors.secondary)
             }
             .frame(maxWidth: .infinity)
         }

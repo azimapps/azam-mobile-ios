@@ -63,6 +63,11 @@ enum WaitCategory: String, Codable, CaseIterable, Identifiable, Sendable {
     }
 
     var color: Color {
-        Color(hex: hexColor)
+        switch self {
+        case .job: Theme.CategoryColors.job
+        case .product: Theme.CategoryColors.product
+        case .admin: Theme.CategoryColors.admin
+        case .event: Theme.CategoryColors.event
+        }
     }
 }

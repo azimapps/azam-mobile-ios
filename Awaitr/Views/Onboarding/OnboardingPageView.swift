@@ -33,12 +33,12 @@ struct OnboardingPageView<Content: View>: View {
         VStack(spacing: Theme.Spacing.sm) {
             Text(title)
                 .font(Theme.Typography.pageTitle)
-                .foregroundStyle(Theme.TextColors.dark)
+                .foregroundStyle(Theme.TextColors.primary)
                 .multilineTextAlignment(.center)
 
             Text(subtitle)
                 .font(Theme.Typography.body)
-                .foregroundStyle(Theme.TextColors.muted)
+                .foregroundStyle(Theme.TextColors.secondary)
                 .multilineTextAlignment(.center)
         }
     }
@@ -51,6 +51,6 @@ struct OnboardingPageView<Content: View>: View {
     ) {
         Image(systemName: "hourglass")
             .font(Theme.Typography.largeIcon)
-            .foregroundStyle(Color(hex: "6C63FF"))
+            .foregroundStyle(Theme.CategoryColors.job)
     }
 }

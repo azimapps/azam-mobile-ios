@@ -9,7 +9,7 @@ struct SettingsRow<Trailing: View>: View {
     let icon: String
     let iconColor: Color
     let label: LocalizedStringKey
-    var labelColor: Color = Theme.TextColors.dark
+    var labelColor: Color = Theme.TextColors.primary
     @ViewBuilder let trailing: () -> Trailing
 
     var body: some View {

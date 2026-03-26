@@ -60,6 +60,10 @@ enum WaitPriority: String, Codable, CaseIterable, Identifiable, Sendable {
     }
 
     var color: Color {
-        Color(hex: hexColor)
+        switch self {
+        case .high: Theme.PriorityColors.high
+        case .medium: Theme.PriorityColors.medium
+        case .low: Theme.PriorityColors.low
+        }
     }
 }

@@ -11,7 +11,7 @@ struct ArchiveItemCard: View {
     private var isPositive: Bool { item.status.isPositive }
 
     private var outcomeColor: Color {
-        isPositive ? Color(hex: "3B6D11") : Color(hex: "E24B4A")
+        isPositive ? Theme.CategoryColors.event : Theme.PriorityColors.high
     }
 
     private var outcomeIcon: String {
@@ -56,11 +56,11 @@ struct ArchiveItemCard: View {
         VStack(alignment: .leading, spacing: 2) {
             Text(item.title)
                 .font(Theme.Typography.buttonLabel)
-                .foregroundStyle(Theme.TextColors.dark)
+                .foregroundStyle(Theme.TextColors.primary)
                 .lineLimit(1)
             Text(subtitle)
                 .font(Theme.Typography.sectionLabel)
-                .foregroundStyle(Theme.TextColors.muted)
+                .foregroundStyle(Theme.TextColors.secondary)
                 .lineLimit(1)
         }
     }

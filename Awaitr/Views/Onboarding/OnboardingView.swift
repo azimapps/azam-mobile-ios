@@ -49,7 +49,7 @@ struct OnboardingView: View {
                 completeOnboarding()
             }
             .font(.system(.body, design: .rounded).weight(.medium))
-            .foregroundStyle(Theme.TextColors.muted)
+            .foregroundStyle(Theme.TextColors.secondary)
             .padding(.horizontal, Theme.Spacing.xl)
             .padding(.top, Theme.Spacing.sm)
         }
@@ -110,7 +110,7 @@ struct OnboardingView: View {
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 14)
                 .background(
-                    isCreateValid ? Theme.CategoryColors.job : Theme.TextColors.muted,
+                    isCreateValid ? Theme.CategoryColors.job : Theme.TextColors.secondary,
                     in: RoundedRectangle(cornerRadius: Theme.Radii.md)
                 )
         }
@@ -122,7 +122,7 @@ struct OnboardingView: View {
             completeOnboarding()
         }
         .font(.system(.footnote, design: .rounded).weight(.medium))
-        .foregroundStyle(Theme.TextColors.muted)
+        .foregroundStyle(Theme.TextColors.secondary)
     }
 
     // MARK: - Validation
@@ -167,7 +167,7 @@ extension OnboardingView {
                             .font(Theme.Typography.title)
                         Text(category.label)
                             .font(.system(.caption, design: .rounded).weight(.semibold))
-                            .foregroundStyle(Theme.TextColors.dark)
+                            .foregroundStyle(Theme.TextColors.primary)
                             .multilineTextAlignment(.center)
                     }
                     .frame(maxWidth: .infinity)
@@ -212,7 +212,7 @@ extension OnboardingView {
                     ForEach(demoStages, id: \.self) { status in
                         Text(demoTemplate.shortLabel(for: status))
                             .font(Theme.Typography.smallBadge)
-                            .foregroundStyle(Theme.TextColors.muted)
+                            .foregroundStyle(Theme.TextColors.secondary)
                             .frame(maxWidth: .infinity)
                     }
                 }
@@ -224,7 +224,7 @@ extension OnboardingView {
     private func pipelineDot(index: Int) -> some View {
         let isActive = animatePipeline && index <= 2
         return Circle()
-            .fill(isActive ? Theme.CategoryColors.job : Theme.TextColors.muted.opacity(0.3))
+            .fill(isActive ? Theme.CategoryColors.job : Theme.TextColors.secondary.opacity(0.3))
             .frame(width: 14, height: 14)
             .overlay {
                 if isActive {
@@ -240,7 +240,7 @@ extension OnboardingView {
     private func pipelineConnector(filled: Bool) -> some View {
         let isActive = animatePipeline && filled
         return Rectangle()
-            .fill(isActive ? Theme.CategoryColors.job : Theme.TextColors.muted.opacity(0.3))
+            .fill(isActive ? Theme.CategoryColors.job : Theme.TextColors.secondary.opacity(0.3))
             .frame(height: 3)
             .frame(maxWidth: .infinity)
             .animation(Theme.Animations.springMedium.delay(0.2), value: animatePipeline)
@@ -261,18 +261,18 @@ extension OnboardingView {
                 VStack(alignment: .leading, spacing: Theme.Spacing.xs) {
                     Text("Title")
                         .font(Theme.Typography.caption)
-                        .foregroundStyle(Theme.TextColors.muted)
+                        .foregroundStyle(Theme.TextColors.secondary)
                     TextField("e.g. Google internship application", text: $itemTitle)
                         .font(Theme.Typography.body)
                         .textFieldStyle(.plain)
                         .padding(Theme.Spacing.md)
                         .background(
                             RoundedRectangle(cornerRadius: Theme.Radii.sm)
-                                .fill(.white.opacity(0.5))
+                                .fill(Theme.GlassColors.fill)
                         )
                         .overlay(
                             RoundedRectangle(cornerRadius: Theme.Radii.sm)
-                                .stroke(Color.black.opacity(0.06), lineWidth: 1)
+                                .stroke(Theme.GlassColors.inactiveBar, lineWidth: 1)
                         )
                         .onChange(of: itemTitle) { _, newValue in
                             if newValue.count > 80 {
@@ -284,7 +284,7 @@ extension OnboardingView {
                 VStack(alignment: .leading, spacing: Theme.Spacing.xs) {
                     Text("Category")
                         .font(Theme.Typography.caption)
-                        .foregroundStyle(Theme.TextColors.muted)
+                        .foregroundStyle(Theme.TextColors.secondary)
                     CategoryPickerView(selectedCategory: $selectedCategory)
                 }
             }

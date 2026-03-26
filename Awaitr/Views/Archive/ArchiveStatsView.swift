@@ -35,7 +35,7 @@ struct ArchiveStatsView: View {
     private var sectionLabel: some View {
         Text("OUTCOMES")
             .font(Theme.Typography.sectionLabel)
-            .foregroundStyle(Theme.TextColors.muted)
+            .foregroundStyle(Theme.TextColors.secondary)
             .tracking(0.8)
     }
 
@@ -45,26 +45,26 @@ struct ArchiveStatsView: View {
         ZStack {
             // Background ring
             Circle()
-                .stroke(Color(hex: "F0F0F4"), lineWidth: 8)
+                .stroke(Theme.GlassColors.trackBg, lineWidth: 8)
 
             // Accepted arc
             Circle()
                 .trim(from: 0, to: acceptedRatio)
-                .stroke(Color(hex: "3B6D11"), style: StrokeStyle(lineWidth: 8, lineCap: .round))
+                .stroke(Theme.CategoryColors.event, style: StrokeStyle(lineWidth: 8, lineCap: .round))
                 .rotationEffect(.degrees(-90))
 
             // Rejected arc
             if rejectedRatio > 0 {
                 Circle()
                     .trim(from: acceptedRatio, to: acceptedRatio + rejectedRatio)
-                    .stroke(Color(hex: "E24B4A"), style: StrokeStyle(lineWidth: 8, lineCap: .round))
+                    .stroke(Theme.PriorityColors.high, style: StrokeStyle(lineWidth: 8, lineCap: .round))
                     .rotationEffect(.degrees(-90))
             }
 
             // Center percentage
             Text(percentageText)
                 .font(Theme.Typography.numericCounter)
-                .foregroundStyle(Theme.TextColors.dark)
+                .foregroundStyle(Theme.TextColors.primary)
         }
         .frame(width: 80, height: 80)
         .accessibilityElement(children: .ignore)
@@ -75,8 +75,8 @@ struct ArchiveStatsView: View {
 
     private var legend: some View {
         VStack(alignment: .leading, spacing: 8) {
-            legendRow(icon: "checkmark.circle.fill", color: Color(hex: "3B6D11"), label: "\(accepted) Successful")
-            legendRow(icon: "xmark.circle.fill", color: Color(hex: "E24B4A"), label: "\(rejected) Unsuccessful")
+            legendRow(icon: "checkmark.circle.fill", color: Theme.CategoryColors.event, label: "\(accepted) Successful")
+            legendRow(icon: "xmark.circle.fill", color: Theme.PriorityColors.high, label: "\(rejected) Unsuccessful")
         }
     }
 
@@ -87,7 +87,7 @@ struct ArchiveStatsView: View {
                 .frame(width: 10, height: 10)
             Text(label)
                 .font(Theme.Typography.captionBold)
-                .foregroundStyle(Theme.TextColors.dark)
+                .foregroundStyle(Theme.TextColors.primary)
         }
     }
 }

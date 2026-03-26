@@ -59,7 +59,7 @@ struct ItemDetailView: View {
             CategoryBadge(category: item.category)
             Text(item.category.shortLabel)
                 .font(Theme.Typography.caption)
-                .foregroundStyle(Theme.TextColors.muted)
+                .foregroundStyle(Theme.TextColors.secondary)
             Spacer()
             PriorityDot(priority: item.priority)
             Text("\(item.priority.localizedName) priority")
@@ -98,9 +98,9 @@ struct ItemDetailView: View {
         ]
 
         return LazyVGrid(columns: columns, alignment: .leading, spacing: Theme.Spacing.md) {
-            detailCell(label: "Submitted", value: item.submittedAt.shortFormatted, color: Theme.TextColors.dark)
+            detailCell(label: "Submitted", value: item.submittedAt.shortFormatted, color: Theme.TextColors.primary)
             detailCell(label: "Days waiting", value: item.daysWaitingLabel, color: item.category.color)
-            detailCell(label: "Expected by", value: item.expectedAt?.shortFormatted ?? String(localized: "Not set"), color: Theme.TextColors.dark)
+            detailCell(label: "Expected by", value: item.expectedAt?.shortFormatted ?? String(localized: "Not set"), color: Theme.TextColors.primary)
             detailCell(label: "Follow-up", value: item.followUpAt?.shortFormatted ?? String(localized: "Not set"), color: Theme.CategoryColors.admin)
         }
     }
@@ -109,7 +109,7 @@ struct ItemDetailView: View {
         VStack(alignment: .leading, spacing: 2) {
             Text(label)
                 .font(Theme.Typography.sectionLabel)
-                .foregroundStyle(Theme.TextColors.muted)
+                .foregroundStyle(Theme.TextColors.secondary)
             Text(value)
                 .font(Theme.Typography.bodyMedium)
                 .foregroundStyle(color)
@@ -141,7 +141,7 @@ struct ItemDetailView: View {
                     sectionLabel("NOTES")
                     Text(item.notes)
                         .font(Theme.Typography.caption)
-                        .foregroundStyle(Color(hex: "3D3D5C"))
+                        .foregroundStyle(Theme.TextColors.primary)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
             }
@@ -204,7 +204,7 @@ struct ItemDetailView: View {
                 .foregroundStyle(.white)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 12)
-                .background(Color(hex: "3B6D11"))
+                .background(Theme.CategoryColors.event)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
         }
         .accessibilityHint("Marks this item as successful")
@@ -219,10 +219,10 @@ struct ItemDetailView: View {
         } label: {
             Text(template.shortLabel(for: .negative))
                 .font(Theme.Typography.buttonLabel)
-                .foregroundStyle(Color(hex: "E24B4A"))
+                .foregroundStyle(Theme.PriorityColors.high)
                 .padding(.vertical, 12)
                 .padding(.horizontal, 16)
-                .background(Color(hex: "E24B4A").opacity(0.1))
+                .background(Theme.PriorityColors.high.opacity(0.1))
                 .clipShape(RoundedRectangle(cornerRadius: 12))
         }
         .accessibilityHint("Marks this item as unsuccessful")
@@ -245,9 +245,9 @@ struct ItemDetailView: View {
         Button { showDeleteConfirmation = true } label: {
             Image(systemName: "trash.fill")
                 .font(Theme.Typography.bodyMedium)
-                .foregroundStyle(Color(hex: "E24B4A"))
+                .foregroundStyle(Theme.PriorityColors.high)
                 .frame(width: 44, height: 44)
-                .background(Color(hex: "E24B4A").opacity(0.1))
+                .background(Theme.PriorityColors.high.opacity(0.1))
                 .clipShape(RoundedRectangle(cornerRadius: 12))
         }
         .accessibilityLabel("Delete item")
@@ -259,7 +259,7 @@ struct ItemDetailView: View {
     private func sectionLabel(_ text: LocalizedStringKey) -> some View {
         Text(text)
             .font(Theme.Typography.sectionLabel)
-            .foregroundStyle(Theme.TextColors.muted)
+            .foregroundStyle(Theme.TextColors.secondary)
             .tracking(0.8)
     }
 }

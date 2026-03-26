@@ -54,7 +54,7 @@ struct PipelineProgressView: View {
 
             Text(label)
                 .font(Theme.Typography.smallBadge)
-                .foregroundStyle(completed ? categoryColor : Color(hex: "999999"))
+                .foregroundStyle(completed ? categoryColor : Theme.TextColors.tertiary)
                 .lineLimit(1)
                 .minimumScaleFactor(0.7)
         }
@@ -65,27 +65,27 @@ struct PipelineProgressView: View {
     private func circleContent(number: Int, completed: Bool, isLast: Bool) -> some View {
         if isLast && status.isPositive {
             Circle()
-                .fill(Color(hex: "3B6D11").opacity(0.15))
+                .fill(Theme.CategoryColors.event.opacity(0.15))
                 .overlay(
                     Image(systemName: "checkmark")
                         .font(Theme.Typography.captionBold)
-                        .foregroundStyle(Color(hex: "3B6D11"))
+                        .foregroundStyle(Theme.CategoryColors.event)
                 )
         } else if isLast && status.isNegative {
             Circle()
-                .fill(Color(hex: "E24B4A").opacity(0.15))
+                .fill(Theme.PriorityColors.high.opacity(0.15))
                 .overlay(
                     Image(systemName: "xmark")
                         .font(Theme.Typography.captionBold)
-                        .foregroundStyle(Color(hex: "E24B4A"))
+                        .foregroundStyle(Theme.PriorityColors.high)
                 )
         } else {
             Circle()
-                .fill(completed ? categoryColor.opacity(0.15) : Color.black.opacity(0.05))
+                .fill(completed ? categoryColor.opacity(0.15) : Theme.GlassColors.inactiveBar)
                 .overlay(
                     Text("\(number)")
                         .font(Theme.Typography.captionBold)
-                        .foregroundStyle(completed ? categoryColor : Color(hex: "999999"))
+                        .foregroundStyle(completed ? categoryColor : Theme.TextColors.tertiary)
                 )
         }
     }
@@ -94,7 +94,7 @@ struct PipelineProgressView: View {
 
     private func connector(completed: Bool) -> some View {
         Rectangle()
-            .fill(completed ? categoryColor.opacity(0.3) : Color.black.opacity(0.06))
+            .fill(completed ? categoryColor.opacity(0.3) : Theme.GlassColors.inactiveBar)
             .frame(height: 3)
             .frame(maxWidth: .infinity)
     }

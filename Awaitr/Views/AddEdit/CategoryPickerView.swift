@@ -36,7 +36,7 @@ struct CategoryPickerView: View {
                     .font(Theme.Typography.cardTitle)
                 Text(category.shortLabel)
                     .font(Theme.Typography.captionBold)
-                    .foregroundStyle(isSelected ? category.color : Theme.TextColors.muted)
+                    .foregroundStyle(isSelected ? category.color : Theme.TextColors.secondary)
             }
             .frame(maxWidth: .infinity)
             .padding(.vertical, 10)
@@ -47,7 +47,7 @@ struct CategoryPickerView: View {
             .overlay(
                 RoundedRectangle(cornerRadius: 12)
                     .stroke(
-                        isSelected ? category.color : Color.black.opacity(0.06),
+                        isSelected ? category.color : Theme.GlassColors.inactiveBar,
                         lineWidth: isSelected ? 1.5 : 1
                     )
             )

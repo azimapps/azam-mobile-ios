@@ -20,19 +20,19 @@ struct EmptyStateView: View {
 
             Image(systemName: icon)
                 .font(Theme.Typography.largeIcon)
-                .foregroundStyle(Theme.TextColors.muted)
+                .foregroundStyle(Theme.TextColors.secondary)
                 .opacity(hasAppeared ? 1 : 0)
                 .offset(y: hasAppeared ? 0 : 20)
 
             Text(heading)
                 .font(Theme.Typography.sectionHeader)
-                .foregroundStyle(Theme.TextColors.dark)
+                .foregroundStyle(Theme.TextColors.primary)
                 .opacity(hasAppeared ? 1 : 0)
                 .offset(y: hasAppeared ? 0 : 20)
 
             Text(subheading)
                 .font(Theme.Typography.body)
-                .foregroundStyle(Theme.TextColors.muted)
+                .foregroundStyle(Theme.TextColors.secondary)
                 .opacity(hasAppeared ? 1 : 0)
                 .offset(y: hasAppeared ? 0 : 20)
 

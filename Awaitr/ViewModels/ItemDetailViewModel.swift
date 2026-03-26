@@ -28,11 +28,13 @@ final class ItemDetailViewModel {
     func acceptItem() {
         item.transition(to: .positive)
         NotificationService.cancel(for: item.id)
+        ReviewService.recordArchiveAndRequestReviewIfNeeded()
     }
 
     func rejectItem() {
         item.reject()
         NotificationService.cancel(for: item.id)
+        ReviewService.recordArchiveAndRequestReviewIfNeeded()
     }
 
     // MARK: - Archive
@@ -40,6 +42,7 @@ final class ItemDetailViewModel {
     func archiveItem() {
         item.archive()
         NotificationService.cancel(for: item.id)
+        ReviewService.recordArchiveAndRequestReviewIfNeeded()
     }
 
     // MARK: - Delete

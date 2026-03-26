@@ -40,6 +40,7 @@ struct ContentView: View {
     @State private var selectedTab: AppTab = .home
     @State private var navigationPath = NavigationPath()
     @State private var showAddSheet = false
+    @AppStorage("appearanceMode") private var appearanceMode: String = AppearanceMode.auto.rawValue
     @Environment(NavigationCoordinator.self) private var coordinator
     @Environment(\.modelContext) private var modelContext
 
@@ -74,7 +75,7 @@ struct ContentView: View {
         .sheet(isPresented: $showAddSheet) {
             AddEditItemView()
         }
-        .preferredColorScheme(.light)
+        .preferredColorScheme(AppearanceMode(rawValue: appearanceMode)?.colorScheme)
         .onChange(of: coordinator.pendingItemId) { _, itemId in
             guard let itemId else { return }
             navigateToItem(id: itemId)

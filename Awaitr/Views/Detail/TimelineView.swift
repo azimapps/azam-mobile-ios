@@ -35,7 +35,7 @@ struct StatusTimelineView: View {
 
                 if !isLast {
                     Rectangle()
-                        .fill(Color(hex: "6C63FF").opacity(0.15))
+                        .fill(Theme.CategoryColors.job.opacity(0.15))
                         .frame(width: 2)
                         .frame(minHeight: 28)
                 }
@@ -45,11 +45,11 @@ struct StatusTimelineView: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(template.label(for: entry.status))
                     .font(Theme.Typography.captionBold)
-                    .foregroundStyle(Theme.TextColors.dark)
+                    .foregroundStyle(Theme.TextColors.primary)
 
                 Text("\(entry.timestamp.shortFormatted) — \(entry.timestamp.relativeString)")
                     .font(Theme.Typography.smallLabel)
-                    .foregroundStyle(Theme.TextColors.muted)
+                    .foregroundStyle(Theme.TextColors.secondary)
             }
             .padding(.bottom, isLast ? 0 : 8)
         }

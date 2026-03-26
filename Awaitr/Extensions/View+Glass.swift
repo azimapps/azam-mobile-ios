@@ -14,7 +14,7 @@ struct GlassCardModifier: ViewModifier {
             .clipShape(RoundedRectangle(cornerRadius: Theme.Radii.lg))
             .overlay(
                 RoundedRectangle(cornerRadius: Theme.Radii.lg)
-                    .stroke(.white.opacity(0.3), lineWidth: 0.5)
+                    .stroke(Theme.GlassColors.border, lineWidth: 0.5)
             )
     }
 }

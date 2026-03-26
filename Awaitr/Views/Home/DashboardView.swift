@@ -71,9 +71,9 @@ struct DashboardView: View {
             .background {
                 LinearGradient(
                     colors: [
-                        Color(hex: "F7F6FF"),
-                        Color(hex: "EFF3FF"),
-                        Color(hex: "F0FFF6")
+                        Theme.BackgroundColors.base,
+                        Theme.BackgroundColors.base,
+                        Theme.BackgroundColors.base
                     ],
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing
@@ -107,10 +107,10 @@ struct DashboardView: View {
                 VStack(alignment: .leading, spacing: 2) {
                     Text(greeting)
                         .font(Theme.Typography.bodyMedium)
-                        .foregroundStyle(Theme.TextColors.muted)
+                        .foregroundStyle(Theme.TextColors.secondary)
                     Text("My Waitlist")
                         .font(Theme.Typography.title)
-                        .foregroundStyle(Theme.TextColors.dark)
+                        .foregroundStyle(Theme.TextColors.primary)
                 }
                 .accessibilityElement(children: .combine)
                 Spacer()
@@ -135,9 +135,9 @@ struct DashboardView: View {
         } label: {
             Image(systemName: showSearch ? "xmark" : "magnifyingglass")
                 .font(Theme.Typography.cardTitle)
-                .foregroundStyle(Theme.TextColors.muted)
+                .foregroundStyle(Theme.TextColors.secondary)
                 .frame(width: 40, height: 40)
-                .background(Color.black.opacity(0.04))
+                .background(Theme.GlassColors.inactiveBar)
                 .clipShape(Circle())
         }
         .accessibilityLabel(showSearch ? "Close search" : "Search items")
@@ -148,7 +148,7 @@ struct DashboardView: View {
         HStack(spacing: 8) {
             Image(systemName: "magnifyingglass")
                 .font(Theme.Typography.bodyMedium)
-                .foregroundStyle(Theme.TextColors.muted)
+                .foregroundStyle(Theme.TextColors.secondary)
             TextField("Search items...", text: searchTextBinding)
                 .font(Theme.Typography.searchField)
                 .textInputAutocapitalization(.never)
@@ -157,7 +157,7 @@ struct DashboardView: View {
         }
         .padding(.horizontal, 12)
         .padding(.vertical, 10)
-        .background(Color.black.opacity(0.04))
+        .background(Theme.GlassColors.inactiveBar)
         .clipShape(RoundedRectangle(cornerRadius: 12))
         .padding(.top, 8)
     }
