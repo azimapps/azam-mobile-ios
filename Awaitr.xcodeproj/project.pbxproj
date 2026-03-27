@@ -311,8 +311,6 @@
 				en,
 				Base,
 				id,
-				"en 2",
-				"id 2",
 			);
 			mainGroup = F4B44B612F6D53B200B070E1;
 			minimizedProjectReferenceProxies = 1;
