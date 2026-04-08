@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 import UserNotifications
 import WidgetKit
+import FirebaseCore
 
 @main
 struct AwaitrApp: App {
@@ -35,6 +36,7 @@ struct AwaitrApp: App {
     private let notificationDelegate = NotificationDelegate()
 
     init() {
+        FirebaseApp.configure()
         NotificationService.registerCategories()
         UNUserNotificationCenter.current().delegate = notificationDelegate
 

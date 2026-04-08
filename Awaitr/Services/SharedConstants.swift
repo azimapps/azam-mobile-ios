@@ -8,5 +8,5 @@
 import Foundation
 
 enum SharedConstants {
-    static let appGroupID = "group.app.fiqhrodedhen.Awaitr"
+    static let appGroupID = "group.com.speakingapp.speakingApp"
 }

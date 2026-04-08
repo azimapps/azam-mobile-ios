@@ -10,6 +10,7 @@
 		F419349D2F75684F00CEDED8 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F419349C2F75684F00CEDED8 /* WidgetKit.framework */; };
 		F419349F2F75684F00CEDED8 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F419349E2F75684F00CEDED8 /* SwiftUI.framework */; };
 		F41934B02F75685200CEDED8 /* AwaitrWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F419349A2F75684F00CEDED8 /* AwaitrWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F4FB00030000000000AABBCC /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = F4FB00020000000000AABBCC /* FirebaseCore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4FB00030000000000AABBCC /* FirebaseCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +229,7 @@
 			);
 			name = Awaitr;
 			packageProductDependencies = (
+				F4FB00020000000000AABBCC /* FirebaseCore */,
 			);
 			productName = Awaitr;
 			productReference = F4B44B6A2F6D53B200B070E1 /* Awaitr.app */;
@@ -314,6 +317,9 @@
 			);
 			mainGroup = F4B44B612F6D53B200B070E1;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F4FB00010000000000AABBCC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F4B44B6B2F6D53B200B070E1 /* Products */;
 			projectDirPath = "";
@@ -419,7 +425,7 @@
 				DEVELOPMENT_TEAM = C588LMCKSL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AwaitrWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = AwaitrWidget;
+				INFOPLIST_KEY_CFBundleDisplayName = "Azam Widget";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -427,7 +433,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = app.fiqhrodedhen.Awaitr.AwaitrWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.speakingapp.speakingApp.AwaitrWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -450,7 +456,7 @@
 				DEVELOPMENT_TEAM = C588LMCKSL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AwaitrWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = AwaitrWidget;
+				INFOPLIST_KEY_CFBundleDisplayName = "Azam Widget";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -458,7 +464,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = app.fiqhrodedhen.Awaitr.AwaitrWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.speakingapp.speakingApp.AwaitrWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -600,10 +606,10 @@
 				CODE_SIGN_ENTITLEMENTS = Awaitr/Awaitr.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = C588LMCKSL;
+				DEVELOPMENT_TEAM = 8QK3T5D44M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Awaitr;
+				INFOPLIST_KEY_CFBundleDisplayName = Azam;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -615,7 +621,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = app.fiqhrodedhen.Awaitr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.speakingapp.speakingApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -636,10 +642,10 @@
 				CODE_SIGN_ENTITLEMENTS = Awaitr/Awaitr.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = C588LMCKSL;
+				DEVELOPMENT_TEAM = 8QK3T5D44M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Awaitr;
+				INFOPLIST_KEY_CFBundleDisplayName = Azam;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -651,7 +657,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = app.fiqhrodedhen.Awaitr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.speakingapp.speakingApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -673,7 +679,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = app.fiqhrodedhen.AwaitrTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.speakingapp.speakingApp.AwaitrTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -695,7 +701,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = app.fiqhrodedhen.AwaitrTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.speakingapp.speakingApp.AwaitrTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -715,7 +721,7 @@
 				DEVELOPMENT_TEAM = C588LMCKSL;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = app.fiqhrodedhen.AwaitrUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.speakingapp.speakingApp.AwaitrUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -735,7 +741,7 @@
 				DEVELOPMENT_TEAM = C588LMCKSL;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = app.fiqhrodedhen.AwaitrUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.speakingapp.speakingApp.AwaitrUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -796,6 +802,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F4FB00010000000000AABBCC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F4FB00020000000000AABBCC /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4FB00010000000000AABBCC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F4B44B622F6D53B200B070E1 /* Project object */;
 }
