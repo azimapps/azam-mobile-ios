@@ -1,0 +1,804 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F419349D2F75684F00CEDED8 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F419349C2F75684F00CEDED8 /* WidgetKit.framework */; };
+		F419349F2F75684F00CEDED8 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F419349E2F75684F00CEDED8 /* SwiftUI.framework */; };
+		F41934B02F75685200CEDED8 /* AzamCEOWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F419349A2F75684F00CEDED8 /* AzamCEOWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F41934AE2F75685200CEDED8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F4B44B622F6D53B200B070E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F41934992F75684F00CEDED8;
+			remoteInfo = AzamCEOWidgetExtension;
+		};
+		F4B44B7A2F6D53B400B070E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F4B44B622F6D53B200B070E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F4B44B692F6D53B200B070E1;
+			remoteInfo = AzamCEO;
+		};
+		F4B44B842F6D53B400B070E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F4B44B622F6D53B200B070E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F4B44B692F6D53B200B070E1;
+			remoteInfo = AzamCEO;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F41934B52F75685200CEDED8 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F41934B02F75685200CEDED8 /* AzamCEOWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F419349A2F75684F00CEDED8 /* AzamCEOWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AzamCEOWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F419349C2F75684F00CEDED8 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		F419349E2F75684F00CEDED8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		F41935032F756F6B00CEDED8 /* AzamCEOWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AzamCEOWidgetExtension.entitlements; sourceTree = "<group>"; };
+		F41EF0BE2F75FDED00B60B22 /* AzamCEO.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = AzamCEO.xctestplan; sourceTree = "<group>"; };
+		F4B44B6A2F6D53B200B070E1 /* AzamCEO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AzamCEO.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4B44B792F6D53B400B070E1 /* AzamCEOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AzamCEOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4B44B832F6D53B400B070E1 /* AzamCEOUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AzamCEOUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F41934B12F75685200CEDED8 /* Exceptions for "AzamCEOWidget" folder in "AzamCEOWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = F41934992F75684F00CEDED8 /* AzamCEOWidgetExtension */;
+		};
+		F41935072F7572F600CEDED8 /* Exceptions for "AzamCEO" folder in "AzamCEOWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Extensions/Theme.swift,
+				"Extensions/View+Glass.swift",
+				Models/PipelineTemplate.swift,
+				Models/StatusEntry.swift,
+				Models/WaitCategory.swift,
+				Models/WaitItem.swift,
+				Models/WaitPriority.swift,
+				Models/WaitStatus.swift,
+				Services/SharedConstants.swift,
+			);
+			target = F41934992F75684F00CEDED8 /* AzamCEOWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		F41934A02F75684F00CEDED8 /* AzamCEOWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				F41934B12F75685200CEDED8 /* Exceptions for "AzamCEOWidget" folder in "AzamCEOWidgetExtension" target */,
+			);
+			path = AzamCEOWidget;
+			sourceTree = "<group>";
+		};
+		F4AB00010000000000ABCDEF /* Shared */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		F4B44B6C2F6D53B200B070E1 /* AzamCEO */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AzamCEO;
+			sourceTree = "<group>";
+		};
+		F4B44B7C2F6D53B400B070E1 /* AzamCEOTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AzamCEOTests;
+			sourceTree = "<group>";
+		};
+		F4B44B862F6D53B400B070E1 /* AzamCEOUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AzamCEOUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F41934972F75684F00CEDED8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F419349F2F75684F00CEDED8 /* SwiftUI.framework in Frameworks */,
+				F419349D2F75684F00CEDED8 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4B44B672F6D53B200B070E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4B44B762F6D53B400B070E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4B44B802F6D53B400B070E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F419349B2F75684F00CEDED8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F419349C2F75684F00CEDED8 /* WidgetKit.framework */,
+				F419349E2F75684F00CEDED8 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F4B44B612F6D53B200B070E1 = {
+			isa = PBXGroup;
+			children = (
+				F41EF0BE2F75FDED00B60B22 /* AzamCEO.xctestplan */,
+				F41935032F756F6B00CEDED8 /* AzamCEOWidgetExtension.entitlements */,
+				F4B44B7C2F6D53B400B070E1 /* AzamCEOTests */,
+				F4B44B862F6D53B400B070E1 /* AzamCEOUITests */,
+				F41934A02F75684F00CEDED8 /* AzamCEOWidget */,
+				F419349B2F75684F00CEDED8 /* Frameworks */,
+				F4B44B6B2F6D53B200B070E1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F4B44B6B2F6D53B200B070E1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F4B44B6A2F6D53B200B070E1 /* AzamCEO.app */,
+				F4B44B792F6D53B400B070E1 /* AzamCEOTests.xctest */,
+				F4B44B832F6D53B400B070E1 /* AzamCEOUITests.xctest */,
+				F419349A2F75684F00CEDED8 /* AzamCEOWidgetExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F41934992F75684F00CEDED8 /* AzamCEOWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F41934B22F75685200CEDED8 /* Build configuration list for PBXNativeTarget "AzamCEOWidgetExtension" */;
+			buildPhases = (
+				F41934962F75684F00CEDED8 /* Sources */,
+				F41934972F75684F00CEDED8 /* Frameworks */,
+				F41934982F75684F00CEDED8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				F41934A02F75684F00CEDED8 /* AzamCEOWidget */,
+				F4AB00010000000000ABCDEF /* Shared */,
+			);
+			name = AzamCEOWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = AzamCEOWidgetExtension;
+			productReference = F419349A2F75684F00CEDED8 /* AzamCEOWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		F4B44B692F6D53B200B070E1 /* AzamCEO */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4B44B8D2F6D53B400B070E1 /* Build configuration list for PBXNativeTarget "AzamCEO" */;
+			buildPhases = (
+				F4B44B662F6D53B200B070E1 /* Sources */,
+				F4B44B672F6D53B200B070E1 /* Frameworks */,
+				F4B44B682F6D53B200B070E1 /* Resources */,
+				F41934B52F75685200CEDED8 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F41934AF2F75685200CEDED8 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F4B44B6C2F6D53B200B070E1 /* AzamCEO */,
+				F4AB00010000000000ABCDEF /* Shared */,
+			);
+			name = AzamCEO;
+			packageProductDependencies = (
+			);
+			productName = AzamCEO;
+			productReference = F4B44B6A2F6D53B200B070E1 /* AzamCEO.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F4B44B782F6D53B400B070E1 /* AzamCEOTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4B44B902F6D53B400B070E1 /* Build configuration list for PBXNativeTarget "AzamCEOTests" */;
+			buildPhases = (
+				F4B44B752F6D53B400B070E1 /* Sources */,
+				F4B44B762F6D53B400B070E1 /* Frameworks */,
+				F4B44B772F6D53B400B070E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F4B44B7B2F6D53B400B070E1 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F4B44B7C2F6D53B400B070E1 /* AzamCEOTests */,
+			);
+			name = AzamCEOTests;
+			packageProductDependencies = (
+			);
+			productName = AzamCEOTests;
+			productReference = F4B44B792F6D53B400B070E1 /* AzamCEOTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F4B44B822F6D53B400B070E1 /* AzamCEOUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4B44B932F6D53B400B070E1 /* Build configuration list for PBXNativeTarget "AzamCEOUITests" */;
+			buildPhases = (
+				F4B44B7F2F6D53B400B070E1 /* Sources */,
+				F4B44B802F6D53B400B070E1 /* Frameworks */,
+				F4B44B812F6D53B400B070E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F4B44B852F6D53B400B070E1 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F4B44B862F6D53B400B070E1 /* AzamCEOUITests */,
+			);
+			name = AzamCEOUITests;
+			packageProductDependencies = (
+			);
+			productName = AzamCEOUITests;
+			productReference = F4B44B832F6D53B400B070E1 /* AzamCEOUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F4B44B622F6D53B200B070E1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2610;
+				LastUpgradeCheck = 2610;
+				TargetAttributes = {
+					F41934992F75684F00CEDED8 = {
+						CreatedOnToolsVersion = 26.1;
+					};
+					F4B44B692F6D53B200B070E1 = {
+						CreatedOnToolsVersion = 26.1;
+					};
+					F4B44B782F6D53B400B070E1 = {
+						CreatedOnToolsVersion = 26.1;
+						TestTargetID = F4B44B692F6D53B200B070E1;
+					};
+					F4B44B822F6D53B400B070E1 = {
+						CreatedOnToolsVersion = 26.1;
+						TestTargetID = F4B44B692F6D53B200B070E1;
+					};
+				};
+			};
+			buildConfigurationList = F4B44B652F6D53B200B070E1 /* Build configuration list for PBXProject "AzamCEO" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				id,
+			);
+			mainGroup = F4B44B612F6D53B200B070E1;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = F4B44B6B2F6D53B200B070E1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F4B44B692F6D53B200B070E1 /* AzamCEO */,
+				F4B44B782F6D53B400B070E1 /* AzamCEOTests */,
+				F4B44B822F6D53B400B070E1 /* AzamCEOUITests */,
+				F41934992F75684F00CEDED8 /* AzamCEOWidgetExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F41934982F75684F00CEDED8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4B44B682F6D53B200B070E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4B44B772F6D53B400B070E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4B44B812F6D53B400B070E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F41934962F75684F00CEDED8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4B44B662F6D53B200B070E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4B44B752F6D53B400B070E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4B44B7F2F6D53B400B070E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F41934AF2F75685200CEDED8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F41934992F75684F00CEDED8 /* AzamCEOWidgetExtension */;
+			targetProxy = F41934AE2F75685200CEDED8 /* PBXContainerItemProxy */;
+		};
+		F4B44B7B2F6D53B400B070E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F4B44B692F6D53B200B070E1 /* AzamCEO */;
+			targetProxy = F4B44B7A2F6D53B400B070E1 /* PBXContainerItemProxy */;
+		};
+		F4B44B852F6D53B400B070E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F4B44B692F6D53B200B070E1 /* AzamCEO */;
+			targetProxy = F4B44B842F6D53B400B070E1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F41934B32F75685200CEDED8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = AzamCEOWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = 8QK3T5D44M;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AzamCEOWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Azam CEO Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = azam.ceo.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F41934B42F75685200CEDED8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = AzamCEOWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = 8QK3T5D44M;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AzamCEOWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Azam CEO Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = azam.ceo.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F4B44B8B2F6D53B400B070E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 8QK3T5D44M;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F4B44B8C2F6D53B400B070E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 8QK3T5D44M;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F4B44B8E2F6D53B400B070E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = AzamCEO/AzamCEO.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = 8QK3T5D44M;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Azam CEO";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = azam.ceo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F4B44B8F2F6D53B400B070E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = AzamCEO/AzamCEO.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = 8QK3T5D44M;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Azam CEO";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = azam.ceo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		F4B44B912F6D53B400B070E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8QK3T5D44M;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = azam.ceo.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AzamCEO.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AzamCEO";
+			};
+			name = Debug;
+		};
+		F4B44B922F6D53B400B070E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8QK3T5D44M;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = azam.ceo.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AzamCEO.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AzamCEO";
+			};
+			name = Release;
+		};
+		F4B44B942F6D53B400B070E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8QK3T5D44M;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = azam.ceo.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AzamCEO;
+			};
+			name = Debug;
+		};
+		F4B44B952F6D53B400B070E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8QK3T5D44M;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = azam.ceo.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AzamCEO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F41934B22F75685200CEDED8 /* Build configuration list for PBXNativeTarget "AzamCEOWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F41934B32F75685200CEDED8 /* Debug */,
+				F41934B42F75685200CEDED8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F4B44B652F6D53B200B070E1 /* Build configuration list for PBXProject "AzamCEO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4B44B8B2F6D53B400B070E1 /* Debug */,
+				F4B44B8C2F6D53B400B070E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F4B44B8D2F6D53B400B070E1 /* Build configuration list for PBXNativeTarget "AzamCEO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4B44B8E2F6D53B400B070E1 /* Debug */,
+				F4B44B8F2F6D53B400B070E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F4B44B902F6D53B400B070E1 /* Build configuration list for PBXNativeTarget "AzamCEOTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4B44B912F6D53B400B070E1 /* Debug */,
+				F4B44B922F6D53B400B070E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F4B44B932F6D53B400B070E1 /* Build configuration list for PBXNativeTarget "AzamCEOUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4B44B942F6D53B400B070E1 /* Debug */,
+				F4B44B952F6D53B400B070E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F4B44B622F6D53B200B070E1 /* Project object */;
+}
